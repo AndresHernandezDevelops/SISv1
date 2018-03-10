@@ -20,7 +20,7 @@ public class StudentDAO {
 			ds = (DataSource) (new InitialContext()).lookup("java:/comp/env/jdbc/EECS");
 			//con = ds.getConnection();
 			//con.createStatement();
-		} catch (NamingException e){
+		} catch (Exception e){
 			e.printStackTrace();
 		}
 	}

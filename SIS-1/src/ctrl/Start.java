@@ -7,6 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import model.SIS;
 
 /**
@@ -16,7 +18,6 @@ import model.SIS;
 public class Start extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	
 	private SIS sis;
 	
 	private static final String ID = "id";
@@ -25,12 +26,14 @@ public class Start extends HttpServlet {
 	private static final String CREDITSTOGRADUATE = "creditsToGraduate";
 	private static final String CREDITSENDOFTERM = "creditsEndOfTerm";
 	private static final String EMESSAGE = "errorMessage";
+	private static final String NUMBEROFRESULTS = "numberOfResults";
 	
 	private String id;
 	private String name;
 	private int creditsTaken;
 	private int creditsToGraduate;
 	private int creditsEndOfTerm;
+	private int numberOfResults;
 	
 	private String namePrefix;
 	private String minimumCreditTaken;
@@ -97,7 +100,7 @@ public class Start extends HttpServlet {
 				this.creditsTaken = sis.retriveStudent(namePrefix, input_minimumCreditTaken).get("cse67895").getCredit_taken();
 				this.creditsToGraduate = sis.retriveStudent(namePrefix, input_minimumCreditTaken).get("cse67895").getCredit_graduate();
 				this.creditsEndOfTerm = 0; //just for testing, need to find out how to calculate this
-				
+				this.numberOfResults = 1;
 			}catch (Exception e){
 				this.errorMessage = "Invalid Parameters";
 				this.error = true;
@@ -111,7 +114,8 @@ public class Start extends HttpServlet {
 			this.name = "null";
 			this.creditsTaken = 0;
 			this.creditsToGraduate = 0;
-			this.creditsEndOfTerm = 0; //just for testing,	
+			this.creditsEndOfTerm = 0; 
+			this.numberOfResults = 0;
 			//maintain the result table hidden
 		}
     	
@@ -127,6 +131,7 @@ public class Start extends HttpServlet {
 		this.getServletContext().setAttribute(CREDITSTAKEN, this.creditsTaken);
 		this.getServletContext().setAttribute(CREDITSTOGRADUATE, this.creditsToGraduate);
 		this.getServletContext().setAttribute(CREDITSENDOFTERM, this.creditsEndOfTerm);
+		this.getServletContext().setAttribute(NUMBEROFRESULTS, this.numberOfResults);
     }
 
     

@@ -53,7 +53,11 @@
  -->
 	</FORM>
 	
-	<table>
+	
+	
+	<center>
+	<div >there are ${numberOfResults} entries</div>
+	<table border="1">
 	   <tr>
 	   	<th>ID</th>
 	   	<th>Name</th>
@@ -62,14 +66,15 @@
 	   	<th>Credits end of term</th>
 	   </tr>
 	   <tr>
-	     <td>${requestScope['id']}</td>
-	     <td>${requestScope['name']}</td>
-	     <td>${requestScope['creditsTaken']}</td>
-	     <td>${requestScope['creditsToGraduate']}</td>
-	     <td>${requestScope['creditsEndOfTerm']}</td>
+	     <td>${id}</td>
+	     <td>${name}</td>
+	     <td>${creditsTaken}</td>
+	     <td>${creditsToGraduate}</td>
+	     <td>${creditsEndOfTerm}</td>
 	   </tr>
-	   </table>
-	
+	  </table>
+	</center>
+		
 </body>
 </html>
 </jsp:root>
