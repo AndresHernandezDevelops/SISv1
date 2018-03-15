@@ -18,10 +18,9 @@
 <title>S.I.S. query page</title>
 </head>
 <body>
-	<FORM action="" onsubmit="return validate();" method="POST" >
+	<FORM action=""  method="POST" >
 	<fieldset>
 		<legend>Student Information System</legend>
-		<font color="red">${errorMessage}</font>
 		
 		<LABEL for="namePrefix">Name Prefix</LABEL>
 		<input type="text" name="namePrefix" id="namePrefix" value="${namePrefix}"></input><br/>
@@ -30,51 +29,13 @@
 		<input type="text" name="minimumCreditTaken" id = "minimumCreditTaken" value="${minimumCreditTaken}"></input><br/>
 		<br/>
 		
-		<input type="submit" name="report" value="Report"></input>
-	</fieldset>
-	
-	<!-- the following table is the result set, and is visible only after the user queries the system.  	but it's giving an html error-->
-	   <!-- <table>
-	   <tr>
-	   	<th>ID</th>
-	   	<th>Name</th>
-	   	<th>Credits Taken</th>
-	   	<th>Credits to graduate</th>
-	   	<th>Credits end of term</th>
-	   </tr>
-	   <tr>
-	     <td>${requestScope['id']}</td>
-	     <td>${requestScope['name']}</td>
-	     <td>${requestScope['creditsTaken']}</td>
-	     <td>${requestScope['creditsToGraduate']}</td>
-	     <td>${requestScope['creditsEndOfTerm']}</td>
-	   </tr>
-	   </table>
- -->
-	</FORM>
-	
-	
-	
-	<center>
-	<div >there are ${numberOfResults} entries</div>
-	<table border="1">
-	   <tr>
-	   	<th>ID</th>
-	   	<th>Name</th>
-	   	<th>Credits Taken</th>
-	   	<th>Credits to graduate</th>
-	   	<th>Credits end of term</th>
-	   </tr>
-	   <tr>
-	     <td>${id}</td>
-	     <td>${name}</td>
-	     <td>${creditsTaken}</td>
-	     <td>${creditsToGraduate}</td>
-	     <td>${creditsEndOfTerm}</td>
-	   </tr>
-	  </table>
-	</center>
+		<button name="submit" id="submit" value="true" onclick="doSimpleAjax('/SIS-1/Start');return false;">
+ 				Submit (Ajax)
+		</button>
 		
+	</fieldset>
+	</FORM>
+	<div id="result"></div>	
 </body>
 </html>
 </jsp:root>

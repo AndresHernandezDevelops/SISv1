@@ -15,7 +15,7 @@ public class SIS {
 		enrollments = new EnrollmentDAO();
 	}
 	
-	public Map<String, StudentBean> retriveStudent(String namePrefix, String credit_taken) throws Exception
+	public Map<String, StudentBean> retrieveStudent(String namePrefix, String credit_taken) throws Exception
 	{
 		try{
 			int credits = Integer.parseInt(credit_taken);

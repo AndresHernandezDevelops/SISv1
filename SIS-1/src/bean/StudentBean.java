@@ -6,13 +6,15 @@ public class StudentBean {
 	private String name;
 	private int credit_taken;
 	private int credit_graduate;
+	private int credit_end_of_term;
 	
-	public StudentBean(String sid, String name, int credit_taken, int credit_graduate)
+	public StudentBean(String sid, String name, int credit_taken, int credit_graduate, int credit_end_of_term)
 	{
 		this.sid = sid;
 		this.name = name;
 		this.credit_taken = credit_taken;
 		this.credit_graduate = credit_graduate;
+		this.credit_end_of_term = credit_end_of_term;
 	}
 
 	public String getSid() {
@@ -47,5 +49,11 @@ public class StudentBean {
 		this.credit_graduate = credit_graduate;
 	}
 	
-	
+	public void setCredit_end_of_term(int credit_end_of_term) {
+		this.credit_end_of_term = credit_end_of_term;
+	}
+
+	public int getCredit_end_of_term() {
+		return credit_end_of_term;
+	}
 }
